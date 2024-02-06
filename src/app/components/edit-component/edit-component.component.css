@@ -1,0 +1,75 @@
+
+.btn 
+{
+  background-color: #497173;
+  color: white;
+  font-size: 12px;
+  padding-left: 45px;
+  padding-right: 54px;
+  padding-top: 8px;
+  padding-bottom: 11px;
+  font-family: "Oswald", sans-serif;
+  white-space: nowrap;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.modal-footer{
+  padding: 0.5rem 1rem;
+}
+
+.btn-primary{
+  margin-right: 0.2rem;
+}
+.modal-content{
+  padding: 0.5rem 1rem;
+}
+
+.modal-header{
+  padding: 0.5rem 1rem;
+}
+
+.modal-title{
+  font-weight: 500;
+}
+
+p{
+  padding: 2rem;
+}
+
+.form-group{
+  padding: 0.5rem 0.5rem;
+}
+
+label{
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+.R1 , select, input{
+  text-align: left;
+  font-size: 12px;
+  padding-left: 13px; 
+  padding-right: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Oswald', sans-serif;
+  color:#6e727b;
+  border:none;  
+}
+
+.R2{
+  padding-left: 13px; 
+  padding-right: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-family: 'Oswald', sans-serif;
+  color:#6e727b;
+  border:none;  
+}
+
+.btn-secondary{
+  color: black;
+  background-color: white;
+  margin-right: 10px;
+}

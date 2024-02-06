@@ -1,0 +1,119 @@
+header {
+  background-color: #D6E4E5;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#datePicker {
+  padding-top: 21px;
+  padding-bottom: 20px;
+  text-align: left;
+  font-size: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 170px;
+  font-family:'Oswald', sans-serif;
+  color: #6e727b;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.btn {
+  background-color: #497173;
+  color: white;
+  font-size: 10px;
+  padding-left: 30px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family:'Oswald', sans-serif;
+  white-space: nowrap;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+select {
+  font-size: 10px;
+  padding-left: 10px;
+  padding-right: 40px;
+  padding-top: 14px;
+  padding-bottom: 13px;
+  width: 170px;
+  font-family:'Oswald', sans-serif;
+  color: #6e727b;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.custom-select-container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+}
+
+.custom-select {
+  margin-top: 94px;
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  margin-right: 19px;
+  margin-left: 11px;
+}
+
+label {
+  font-family:'Oswald', sans-serif;
+  color: #6e727b;
+  font-size: 10px;
+  display: block;
+  margin-bottom: -20px;
+  margin-left: 100px;
+}
+
+img {
+  width: 40% !important;
+  height: 70% !important;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -30px;
+  margin-left: 30px;
+  color: #497173;
+  font-weight: 700;
+  font-size: 18px;
+}
+/* 
+.transaction {
+  padding: 4.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  line-height: 16px;
+  margin-top: -60px;
+  margin-left: -40px;
+} */
+
+/* .transaction {
+  padding: 4.5rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  line-height: 16px;
+  margin-top: -60px;
+  margin-left: -40px;
+  overflow: auto;
+  /* grid-auto-rows: 200px; Adjust the height as needed */
+
+/* }  */
+.transaction{
+  columns: 22rem auto;
+  margin-left: 58px;
+  margin-right: 47px;
+  margin-bottom: 11px;
+}
+

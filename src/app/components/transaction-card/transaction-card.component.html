@@ -1,0 +1,111 @@
+<div class="card-container">
+  <div
+    class="card"
+    (click)="toggleCard()"
+    [ngClass]="{ expanded: isExpanded, 'return-card': isReturnTransaction() }"
+  >
+    <div
+      class="close-div"
+      [ngClass]="{ expanded: isExpanded, 'return-card': isReturnTransaction() }"
+    ></div>
+    <div
+      class="card-body"
+      [ngClass]="{ expanded: isExpanded, 'return-card': isReturnTransaction() }"
+    >
+      <button
+        style="width: 50px; height: 50px"
+        class="close-div"
+        *ngIf="isSupervisor() && isExpanded"
+        (click)="callComponent1()"
+        [ngClass]="{ 'return-card': isReturnTransaction() }"
+      >
+        <div class="pencil"></div>
+      </button>
+      <img
+        class="card-img-top"
+        *ngIf="isExpanded"
+        [src]="imageSource[0]"
+        alt="No Image"
+        style="
+          position: relative;
+          left: -9.6px;
+          top: -2.7px;
+          z-index: 0;
+          height: 164px;
+        "
+      />
+      <p
+        style="
+          margin-top: 25px;
+          margin-bottom: -1px;
+          font-weight: 500;
+          margin-left: 6px;
+        "
+      >
+        {{ dataTrans.id }}
+      </p>
+      <h2 style="font-weight: 600; margin-left: 6px">
+        {{ dataTrans.assetName }}
+      </h2>
+      <p
+        style="
+          font-size: 14px;
+          font-weight: 600;
+          margin-top: -15px;
+          margin-bottom: 20px;
+          margin-left: 6px;
+        "
+      >
+        {{ dataTrans.studentname }}
+      </p>
+      <span *ngIf="dataTrans.returnDate != null"
+        ><strong>Return Date: </strong> {{ dataTrans.returnDate | date }}</span
+      >
+      <span *ngIf="dataTrans.loanDate != null"
+        ><strong>Issue Date: </strong> {{ dataTrans.loanDate | date }}</span
+      >
+      
+      <!-- <span *ngIf="isExpanded && dataTrans.id != null"
+        ><strong>Transaction ID: </strong> {{ dataTrans.id }}</span
+      > -->
+      <!-- <span *ngIf="isExpanded && dataTrans.studentId != null"
+        ><strong>Student ID: </strong> {{ dataTrans.studentId }}</span
+      > -->
+      <!-- <span *ngIf="isExpanded && dataTrans.transactionType != null"
+        ><strong>Transaction Type: </strong>
+        {{ dataTrans.transactionType }}</span
+      > -->
+      <span *ngIf="dataTrans.loaningSupervisorname != null"
+        ><strong>Loaning Supervisor: </strong>
+        {{ dataTrans.loaningSupervisorname }}</span
+      >
+      <span *ngIf="isExpanded && dataTrans.assetId != null"
+        ><strong>AssetID: </strong> {{ dataTrans.assetId }}</span
+      >
+      <span *ngIf="dataTrans.receivingSupervisorname != null"
+        ><strong>Receiving Supervisor: </strong>
+        {{ dataTrans.receivingSupervisorname }}</span
+      >
+      <div>
+        <button
+          style="width: 50px; height: 50px; left: 253px"
+          class="close-div1"
+          *ngIf="isSupervisor() && isExpanded && isLoan()"
+          (click)="callComponent()"
+          data-bs-toggle="modal"
+          data-bs-target="#returnAsset"
+          [ngClass]="{ 'return-card': isReturnTransaction() }"
+        >
+          <img
+            class="card-img-top"
+            *ngIf="isExpanded"
+            [src]="imageSource[2]"
+            alt="No Image"
+            width="10px"
+            style="margin-left: -1.5px; margin-top:2.5px"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

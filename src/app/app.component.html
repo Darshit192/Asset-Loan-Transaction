@@ -1,0 +1,134 @@
+<header
+  class="p-4 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+>
+  <a
+    href="/"
+    class="mx-3 d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
+  >
+    <img
+      class="mx-4"
+      width="100px"
+      height="40px"
+      src="../assets/logo.png"
+      alt="My Image"
+    />
+  </a>
+
+  <div
+    class="d-flex justify-content-md-between w-70"
+    style="margin-right: 42px"
+  >
+    <button
+      *ngIf="isSupervisor"
+      type="button"
+      class="btn"
+      data-bs-toggle="modal"
+      data-bs-target="#loanAsset"
+      (click)="createTransaction()"
+    >
+      Create Transaction
+    </button>
+
+    <select
+      class="select text-start ms-4 rounded w-60"
+      style="width: 160px"
+      [(ngModel)]="selectedOption"
+      (change)="checkIsSupervisor()"
+    >
+      <option *ngIf="!selectedOption" value="null" selected="selected">
+        Select User
+      </option>
+      <option *ngIf="selectedOption" value="selectedOption" selected="selected">
+        {{ selectedOption.firstName }} {{ selectedOption.lastName }} ({{
+          selectedOption.role
+        }})
+      </option>
+      <option *ngFor="let val of userData" [ngValue]="val">
+        {{ val.firstName }} {{ val.lastName }} ({{ val.role }})
+      </option>
+    </select>
+  </div>
+</header>
+
+<div class="custom-select-container mt-5 ms-5">
+  <div class="custom-select">
+    <label
+      for="custom-select"
+      class="label-text text-start"
+      style="margin-left: 13px"
+      >Asset</label
+    >
+    <select
+      id="custom-select"
+      class="select text-start ms-0 my-4 rounded"
+      [formControl]="selectedAsset"
+      (change)="onAssetSelect()"
+    >
+      <option [ngValue]="null" selected>Filter By Asset</option>
+      <option *ngFor="let val of assetData" [ngValue]="val">
+        {{ val.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="custom-select">
+    <label for="custom-select" class="label-text" style="margin-left: 32px"
+      >User</label
+    >
+    <select
+      id="custom-select"
+      class="select text-start ms-3 my-4 rounded"
+      [formControl]="selectedUser"
+      (change)="onUserSelect()"
+    >
+      <option [ngValue]="null" selected>Filter By User</option>
+      <option *ngFor="let val of userData" [ngValue]="val">
+        {{ val.firstName }} {{ val.lastName }} ({{ val.role }})
+      </option>
+    </select>
+  </div>
+
+  <div class="custom-select mx-3">
+    <label for="custom-select" class="label-text" style="margin-left: 40px"
+      >Date</label
+    >
+    <input
+      style="height: 2.1rem"
+      class="select text-start ms-4 my-4 rounded text-uppercase"
+      type="date"
+      id="datePicker"
+      [(ngModel)]="selectedDate"
+      (change)="onDateSelect()"
+    />
+  </div>
+</div>
+<div
+  class="card-wrapper transaction"
+  *ngIf="isDataFound && isDataFound1 && isDataFound2; else noDataFound"
+>
+  <ng-container *ngFor="let transaction of transactionData">
+    <app-transaction-card
+      [imageSource]="parentImageSource"
+      [parentOption]="selectedOption"
+      *ngIf="shouldDisplayTransaction(transaction)"
+      [dataTrans]="transaction"
+      (out)="handleEmittedValue($event)"
+    ></app-transaction-card>
+  </ng-container>
+</div>
+
+<ng-template #noDataFound>
+  <img
+    class="rounded mx-auto d-block"
+    width="100px"
+    height="140px"
+    src="../assets/alien spaceship-rafiki 3.png"
+    alt="No data found"
+    style="margin-top: -67px"
+  />
+  <p>No data available !</p>
+</ng-template>
+
+<div *ngIf="shouldShowNoDataTemplate" style="margin-top: -150px">
+  <ng-container *ngTemplateOutlet="noDataFound"></ng-container>
+</div>
